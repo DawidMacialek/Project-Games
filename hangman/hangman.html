@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <head>
+            <h1>Hangman</h1>
+            <h4>Find the hidden word. Enter the letter</h4>
+        </head>
+        <section class="gameWrapper">
+            <div class="game-container">
+                <svg height="260" width="400" class="figure-container">
+                     <!-- Rod -->
+                    <line x1="60" y1="20" x2="180" y2="20" />
+                    <line x1="180" y1="20" x2="180" y2="60" />
+                    <line x1="60" y1="20" x2="60" y2="250" />
+                    <line x1="20" y1="250" x2="100" y2="250" />
+
+                    <!-- Head -->
+                    <circle cx="180" cy="80" r="20" class="figure-part"/>
+                    <!-- body -->
+                    <line x1="180" y1="100" x2="180" y2="170" class="figure-part"/>
+                    <!-- Arms -->
+                    <line x1="180" y1="120" x2="150" y2="150" class="figure-part"/>
+                    <line x1="180" y1="120" x2="210" y2="150" class="figure-part"/>
+                    <!-- Legs -->
+                    <line x1="180" y1="170" x2="150" y2="200" class="figure-part"/>
+                    <line x1="180" y1="170" x2="210" y2="200" class="figure-part"/>
+                </svg>
+            </div>
+            <!-- wrong letters container -->
+            <aside>
+                <h4>Wrong:</h4>
+                <div class="wrong-letters" id="wrong-letters"></div>
+            </aside>
+        </section>
+        <!-- word and catchwoed container -->
+        <section class="content-wrapper">
+            <div class="wordWrapper" id="wordWrapper"><p class="word" id="word"></p></div>
+            <div class="catchword" id="catchword"></div>
+        </section>
+        <!--repeated word prompt  -->
+        <div class="reapeted-word" id="reapeted-word"><p>You have already entered this letter.</p></div>
+        <!-- Winning or Loosing game and Play Again Button -->
+        <div class="endGame">
+            <button class="playAgain" id="playAgain" type="submit">play again</button>
+        </div>
+    </div>
+    <script src="Game.js" type="module"></script>
+</body>
+</html>
