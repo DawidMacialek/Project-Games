@@ -32,13 +32,4 @@ export class Quote {
             return true;
         }  
     }
-    // checkRepeating(letter) {
-    //     if (this.wrong.includes(letter) || this.guessed.includes(letter)) {
-    //         return true;
-    //     }
-    //     return false;
-    // }
-
-   
-
 }
