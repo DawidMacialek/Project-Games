@@ -1,0 +1,270 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --bgc-game-color: #c0c0c0;
+  --timer-counter-font-color: #df0000;
+  --border-dark-color: #808080;
+  --border-light-color: #fff;
+  --alarm-color: #ff0000;
+
+  --info-one-color: #0200fc;
+  --info-two-color: #017e00;
+  --info-three-color: #ff0000;
+  --info-four-color: #010080;
+  --info-five-color: #7f0300;
+  --info-six-color: #008080;
+  --info-seven-color: #000000;
+  --info-eight-color: #808080;
+
+  --cell-size: 30px;
+  --cell-border: 3px;
+  --cells-margin: 1px;
+  --cols-number: 8;
+
+  --game-width: calc(
+    (var(--cell-size) * var(--cols-number)) +
+      ((var(--cols-number) * 2) * var(--cells-margin)) + 18px
+  );
+}
+@font-face {
+  font-family: DIGITALDREAM;
+  src: url("../assets/DIGITALDREAM.ttf");
+}
+.game-container {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  /* min-height: 500px; */
+  width: var(--game-width);
+  background-color: var(--bgc-game-color);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 5px;
+}
+.panel-container {
+  height: 60px;
+  width: calc(100% - 10px);
+  border-top: 3px solid var(--border-dark-color);
+  border-left: 3px solid var(--border-dark-color);
+  border-right: 3px solid var(--border-light-color);
+  border-bottom: 3px solid var(--border-light-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mine-counter,
+.timer {
+  width: 72px;
+  height: 34px;
+  margin: 10px;
+  text-align: right;
+  line-height: 36px;
+  font-size: 30px;
+  background-color: #000;
+  color: var(--timer-counter-font-color);
+  font-family: "DIGITALDREAM", serif;
+  padding: 0 5px 0 2px;
+  /* text-align: center; */
+}
+.emotion-face {
+  width: 40px;
+  height: 40px;
+
+  border-top: 3px solid var(--border-light-color);
+  border-left: 3px solid var(--border-light-color);
+  border-right: 3px solid var(--border-dark-color);
+  border-bottom: 3px solid var(--border-dark-color);
+  background-image: url("../assets/neutral.svg");
+  background-size: cover;
+}
+.emotion-face.lost {
+  background-image: url("../assets/negative.svg");
+}
+.emotion-face.win {
+  background-image: url("../assets/positive.svg");
+}
+.board {
+  width: calc(100% - 10px);
+  /* min-height: 50px; */
+  border-top: 4px solid var(--border-dark-color);
+  border-left: 4px solid var(--border-dark-color);
+  border-right: 4px solid var(--border-light-color);
+  border-bottom: 4px solid var(--border-light-color);
+  margin: 5px 0 5px 0;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: var(--border-dark-color);
+}
+.cell {
+  border-top: var(--cell-border) solid var(--border-light-color);
+  border-left: var(--cell-border) solid var(--border-light-color);
+  border-right: var(--cell-border) solid var(--border-dark-color);
+  border-bottom: var(--cell-border) solid var(--border-dark-color);
+  background-color: var(--bgc-game-color);
+  width: var(--cell-size);
+  height: var(--cell-size);
+  margin: var(--cells-margin);
+  font-size: 24px;
+  text-align: center;
+  line-height: var(--cell-size);
+}
+.revealed {
+  border: none;
+}
+.cell-is-flag {
+  background-image: url("../assets/flag.svg");
+  background-size: cover;
+}
+.cell-is-mine {
+  background-image: url("../assets/mine.svg");
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-color: var(--alarm-color);
+  border: none;
+}
+.cell-info-1 {
+  color: var(--info-one-color);
+}
+.cell-info-2 {
+  color: var(--info-two-color);
+}
+.cell-info-3 {
+  color: var(--info-three-color);
+}
+.cell-info-4 {
+  color: var(--info-four-color);
+}
+.cell-info-5 {
+  color: var(--info-five-color);
+}
+.cell-info-6 {
+  color: var(--info-six-color);
+}
+.cell-info-7 {
+  color: var(--info-seven-color);
+}
+.cell-info-8 {
+  color: var(--info-eight-color);
+}
+.level-options-container {
+  display: flex;
+  width: calc(100% - 10px);
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.level-options-container div {
+  height: 40px;
+  width: 30%;
+  margin: 2px 2px 8px 2px;
+  border: 2px red solid;
+  text-align: center;
+  line-height: 32px;
+  font-family: "Lato", sans-serif;
+  text-transform: uppercase;
+  border-top: var(--cell-border) solid var(--border-light-color);
+  border-left: var(--cell-border) solid var(--border-light-color);
+  border-right: var(--cell-border) solid var(--border-dark-color);
+  border-bottom: var(--cell-border) solid var(--border-dark-color);
+  cursor: pointer;
+}
+.inputBtn {
+  flex-grow: 4;
+}
+
+.modal {
+  width: 100%;
+  height: 100%;
+  /* display: flex; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 1px solid grey;
+  text-transform: uppercase;
+  display: none;
+}
+.modal.hide {
+  display: flex;
+}
+.modal-header {
+  text-align: center;
+  line-height: 80px;
+  font-size: 60px;
+  color: #fff;
+  letter-spacing: 2px;
+  margin-bottom: 80px;
+  /* font-family: 'DIGITALDREAM', sans-serif; */
+}
+.modal-btn {
+  width: 160px;
+  height: 40px;
+  font-size: 20px;
+  line-height: 40px;
+  text-transform: uppercase;
+  background-color: #000;
+  color: var(--border-light-color);
+  letter-spacing: 2px;
+}
+.modal-btn:active {
+  border-color: var(--border-light-color);
+}
+.input-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid grey;
+  text-transform: uppercase;
+  display: none;
+}
+.input-container.show {
+  display: flex;
+}
+.input-container input {
+  width: 70px;
+  height: 40px;
+  font-size: 30px;
+  text-align: center;
+  line-height: 40px;
+  margin: 10px;
+  background-color: #c0c0c0;
+}
+.input-container label {
+  font-size: 30px;
+  color: #c0c0c0;
+  font-family: "Lato", sans-serif;
+  margin-top: 25px;
+}
+.input-buttons {
+  padding: 10px;
+}
+.input-buttons button {
+  width: 100px;
+  height: 30px;
+  margin: 5px;
+  text-align: center;
+  line-height: center;
+  font-family: "Lato", sans-serif;
+  text-transform: uppercase;
+  background-color: #c0c0c0;
+  font-weight: bold;
+}

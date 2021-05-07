@@ -46,7 +46,7 @@ section.games {
     text-decoration: none;
     display: block;
 }
-.hangmanImg {
+.hangmanImg, .minesweeperImg {
     position: absolute;
     top: 0;
     left: 0;
@@ -58,5 +58,8 @@ section.games {
     transition: .6s;
 }
 .game.hangman:hover .hangmanImg {
+    transform: translateX(-200px);
+}
+.game.minesweeper:hover .minesweeperImg {
     transform: translateX(-200px);
 }

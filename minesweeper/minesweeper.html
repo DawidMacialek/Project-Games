@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minesweeper</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body>
+    <div class="game-container">
+        <section class="panel-container">
+            <div class="mine-counter" data-counter>000</div>
+            <div class="emotion-face" data-emotion></div>
+            <div class="timer" data-timer>000</div>
+        </section>
+        <section class="board" data-board>
+            <!-- <div class="cell revealed"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell "></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div> -->
+        </section>
+        <section class="level-options-container">
+            <div class="easy" data-easy-btn>easy</div>
+            <div class="medium" data-medium-btn>medium</div>
+            <div class="hard" data-expert-btn>expert</div>
+            <div class="inputBtn" data-input-btn>Make your own board</div>
+        </section>
+    </div>
+    <section class="modal" data-modal>
+        <h1 class="modal-header" data-modal-header></h1>
+        <button class="modal-btn" data-modal-button>Close</button>
+    </section>
+
+    <section class="input-container" data-unstandard-board>
+        <label for="rows">number of rows:</label>
+        <input type="number" data-input-rows name="rows">
+        <label for="columns">number of columns:</label>
+        <input type="number" data-input-cols name="columns">
+        <label for="mines">number of mines:</label>
+        <input type="number" data-input-mines name="mines">
+        <div class="input-buttons">
+            <button type="submit" class="inputSubmit" data-input-submit-btn>submit</button>
+            <button class="cancelInputBtn" data-cancel-input-form>cancel</button>
+        </div>
+
+
+    </section>
+    <script src="./JS/Game.js" type="module"></script>
+</body>
+
+</html>
