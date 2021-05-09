@@ -23,7 +23,6 @@ class Game extends Ui {
       mines: 99,
     },
   };
-
   counter = new Counter();
   timer = new Timer();
   modal = new Modal();
@@ -52,7 +51,6 @@ class Game extends Ui {
 
     this.cellsToReveal = 0;
     this.revealedCells = 0;
-    console.log(this.numberOfMines);
 
     this.counter.setValue(this.numberOfMines);
     this.setNumberOfColStyle();
@@ -61,9 +59,8 @@ class Game extends Ui {
     this.placeMines();
     this.timer.resetTimer();
     this.cellElements = this.getElements(this.UiSelector.cell);
-    // console.log(this.cellElements);
+
     this.addCellsEventListeners();
-    console.log(this.unstandardBoard.inputRows);
   }
   handleElements() {
     this.#board = this.getElement(this.UiSelector.board);
@@ -77,11 +74,10 @@ class Game extends Ui {
     this.cancelFormBtn = this.getElement(this.UiSelector.cancelInputFormBtn);
     this.submitFormBtn = this.getElement(this.UiSelector.submitFormBtn);
   }
+  // event listeners
   addButtonsEventListeners() {
     this.playAgainModalBtn.addEventListener("click", () => {
       this.modal.toggleModal();
-      // this.emotionFace.classList.remove("win", "lost");
-      // this.newGame();
     });
     this.easyBtn.addEventListener("click", () => {
       this.handleNewGameClick(
@@ -89,7 +85,6 @@ class Game extends Ui {
         this.config.easy.cols,
         this.config.easy.mines
       );
-      
     });
     this.mediumBtn.addEventListener("click", () => {
       this.handleNewGameClick(
@@ -128,16 +123,6 @@ class Game extends Ui {
       }
     });
   }
-
-  handleNewGameClick(
-    rows = this.numberOfRows,
-    cols = this.numberOfCols,
-    mines = this.numberOfMines
-  ) {
-    this.emotionFace.classList.remove("win", "lost");
-    this.newGame(rows, cols, mines);
-    console.log("new game");
-  }
   addCellsEventListeners() {
     this.cellElements.forEach((element) => {
       element.addEventListener("click", this.handleCellClick);
@@ -150,6 +135,17 @@ class Game extends Ui {
       element.removeEventListener("contextmenu", this.handleCellContextmenu);
     });
   }
+
+  handleNewGameClick(
+    rows = this.numberOfRows,
+    cols = this.numberOfCols,
+    mines = this.numberOfMines
+  ) {
+    this.emotionFace.classList.remove("win", "lost");
+    this.newGame(rows, cols, mines);
+    console.log("new game");
+  }
+
   generateCells() {
     this.cells.length = 0;
     for (let row = 0; row < this.numberOfRows; row++) {
@@ -167,19 +163,14 @@ class Game extends Ui {
     this.cells.flat().forEach((cell) => {
       this.#board.insertAdjacentHTML("beforeend", cell.createElement());
       cell.element = cell.getElement(cell.selector);
-      //   console.log(this.getElements(this.UiSelector.cell));
     });
   }
   handleCellClick = (e) => {
     const target = e.target;
-
     target.classList.add("revealed");
-
     const rowIndex = parseInt(target.getAttribute("data-y"), 10);
     const colIndex = parseInt(target.getAttribute("data-x"), 10);
-
     const cell = this.cells[rowIndex][colIndex];
-    // console.log(cell);
     this.clickCell(cell);
   };
   handleCellContextmenu = (e) => {
@@ -188,8 +179,6 @@ class Game extends Ui {
     const rowIndex = parseInt(target.getAttribute("data-y"), 10);
     const colIndex = parseInt(target.getAttribute("data-x"), 10);
     const cell = this.cells[rowIndex][colIndex];
-
-    // console.log(this.cells.length);
 
     if (cell.isRevealed) return;
 
@@ -202,9 +191,6 @@ class Game extends Ui {
       this.counter.decrement();
       cell.toggleFlag();
     }
-
-    // this.counter.setValue();
-    console.log(cell.isFlagged);
   };
   clickCell(cell) {
     if (cell.isFlagged) {
@@ -237,13 +223,11 @@ class Game extends Ui {
   endGameWin() {
     this.cellsToReveal =
       this.numberOfRows * this.numberOfCols - this.numberOfMines;
-    console.log(this.revealedCells, this.cellsToReveal);
 
     if (this.cellsToReveal === this.revealedCells) {
       this.emotionFace.classList.add("win");
       console.log("win");
       this.timer.stopTimer();
-
       this.modal.infoText = `You Win in ${this.timer.numberOfSeconds} seconds Congratulations!`;
       this.modal.setModalText();
       this.modal.toggleModal();
@@ -262,7 +246,6 @@ class Game extends Ui {
         colIndex <= Math.min(cell.x + 1, this.numberOfCols - 1);
         colIndex++
       ) {
-        // console.log(this.cells[rowIndex][colIndex]);
         if (this.cells[rowIndex][colIndex].isMine) {
           countMines++;
         }
@@ -271,10 +254,6 @@ class Game extends Ui {
     cell.value = countMines;
     cell.revealCell(cell);
     this.revealedCells++;
-
-    // console.log(this.revealedCells);
-
-    // console.log(cell.value);
     if (cell.value === 0) {
       for (
         let rowIndex = Math.max(cell.y - 1, 0);
@@ -288,7 +267,6 @@ class Game extends Ui {
         ) {
           const cell = this.cells[rowIndex][colIndex];
           if (!cell.isRevealed) {
-            // console.log(cell);
             this.clickCell(cell);
           }
         }
@@ -309,7 +287,6 @@ class Game extends Ui {
         cell.addMine();
         numberOfMinesToPlace--;
       }
-      //   console.log(numberOfMinesToPlace);
     }
   }
   getRandomNumber(min, max) {
@@ -325,6 +302,5 @@ class Game extends Ui {
 
 window.onload = function () {
   const game = new Game();
-
   game.initialize();
 };

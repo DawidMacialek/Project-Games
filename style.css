@@ -1,65 +1,91 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-}
-body {
-    background-color: #a1b4c7;
-}
-.container {
-    max-width: 1200px;
-    min-height: 100vh;
-    margin: 0 auto;
-    border-right: 2px dotted black;
-    border-left: 2px dotted black;
-    
+  box-sizing: border-box;
+  margin: 0;
 }
 
-h1 {
-   color: #fff;
-    text-align: center;
-    padding: 50px 0;
+body {
+  background-color: #fff;
 }
+
 section.games {
-    min-width: 500px;
-    height: 500px;
-    margin: 0 50px;
-    background-color: #ccc;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
+  margin: 10px auto;
+  max-width: 1200px;
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 .game {
-    width: 200px;
-    height: 200px;
-    margin: 20px;
-    background-color: #aaa;
-    border-radius: 35%;
-    text-align: center;
-    line-height: 200px;
-    font-size: 30px;
-    position: relative;
-    overflow: hidden;
-    
+  width: 300px;
+  height: 200px;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.game p {
+  line-height: 200px;
+  font-size: 40px;
 }
 .games a {
-    text-decoration: none;
-    display: block;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  margin: 5%;
 }
-.hangmanImg, .minesweeperImg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 34%;
-    width: 200px;
-    height: 200px;
-    background-color: #ddd;
-    transform: translateX(0);
-    transition: .6s;
+.curtain {
+  position: absolute;
+  top: 0;
+  width: 150px;
+  height: 200px;
+  transition: 1s;
 }
-.game.hangman:hover .hangmanImg {
-    transform: translateX(-200px);
+.hangmanImg_1 {
+  left: 0;
+  background-color: #ddd;
+  background-image: url('./img/hangman2.jpg');
+  background-size: cover;
 }
-.game.minesweeper:hover .minesweeperImg {
-    transform: translateX(-200px);
+.hangmanImg_2 {
+  right: 0;
+  background-color: #ddd;
+  background-image: url('./img/hangman2.jpg');
+  background-size: cover;
+  background-position-x: -100%;
+}
+.minesweeperImg_1 {
+  left: 0;
+  /* background-color: #ddd; */
+  background-image: url("./img/time-bomb-002-mine-jason-decaires-taylor-sculpture.jpg");
+  background-size: cover;
+  background-position-x: -5%;
+  background-repeat: no-repeat;
+}
+.minesweeperImg_2 {
+  right: 0;
+  /* background-color: #ddd; */
+  background-image: url("./img/time-bomb-002-mine-jason-decaires-taylor-sculpture.jpg");
+  background-size: cover;
+  background-position-x: -105%;
+}
+/* Hover action */
+.game:hover .hangmanImg_1 {
+  transform: translateX(-100%);
+  opacity: .5;
+}
+
+.game:hover .hangmanImg_2 {
+  transform: translateX(100%);
+  opacity: .5;
+}
+
+.game:hover .minesweeperImg_1 {
+  transform: translateX(-100%);
+  opacity: .5;
+}
+.game:hover .minesweeperImg_2 {
+  transform: translateX(100%);
+  opacity: .5;
 }

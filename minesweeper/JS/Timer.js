@@ -18,7 +18,7 @@ export class Timer extends Ui {
     clearInterval(this.setInterval);
   }
   resetTimer() {
-      this.numberOfSeconds = 0;
+    this.numberOfSeconds = 0;
     this.stopTimer();
     this.startTimer();
     this.updateTimer();

@@ -6,8 +6,6 @@ export class UnstandardBoard extends Ui {
     this.inputRows = inputRows;
     this.inputCols = inputCols;
     this.inputMines = inputMines;
-
-    // boardForm = null;
     this.valid = false;
   }
   toggleFormBoard() {
@@ -35,7 +33,10 @@ export class UnstandardBoard extends Ui {
     } else if (this.inputCols < 8 || this.inputCols > 30) {
       alert("Please choose number of columns between 8 and 30");
       this.valid = false;
-    } else if (this.inputMines > (this.inputRows - 1) * (this.inputCols - 1) || this.inputMines < 10) {
+    } else if (
+      this.inputMines > (this.inputRows - 1) * (this.inputCols - 1) ||
+      this.inputMines < 10
+    ) {
       alert(
         `Please choose number of mines between 10 and ${
           (this.inputRows - 1) * (this.inputCols - 1)
