@@ -1,0 +1,125 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+:root {
+  --number-of-cards-in-a-row: 6;
+  --card-size: 80px;
+  --margin-between-cards: 1px;
+  --scale-value: 1;
+  --board-width: calc(
+    var(--card-size) * var(--number-of-cards-in-a-row) +
+      var(--margin-between-cards) * calc(var(--number-of-cards-in-a-row) * 2)
+  );
+}
+body {
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+.game_container {
+  background-color: #ddd;
+  width: 90vw;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: scale(var(--scale-value));
+}
+header h1 {
+  padding: 15px;
+  margin: 15px;
+  font-size: 16px;
+}
+.results_container {
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: var(--board-width);
+  background-color: #eee;
+  height: 50px;
+}
+.board {
+  margin-top: 10px;
+  width: var(--board-width);
+
+  display: inline-block;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  transform: scale(var(--scale-value));
+}
+.card {
+  width: var(--card-size);
+  height: var(--card-size);
+  min-width: 80px;
+  min-height: 80px;
+  background-color: #aaa;
+  margin: var(--margin-between-cards);
+  background-position: center;
+  background-size: cover;
+}
+.restart_button {
+    height: 30px;
+    width: 100px;
+    background-color: #ddd;
+}
+.card-top {
+  background-image: url(images/card-background.jpg);
+}
+.card-1 {
+  background-image: url(images/card-1.png);
+}
+.card-2 {
+  background-image: url(images/card-2.png);
+}
+.card-3 {
+  background-image: url(images/card-3.png);
+}
+.card-4 {
+  background-image: url(images/card-4.png);
+}
+.card-5 {
+  background-image: url(images/card-5.png);
+}
+.card-6 {
+  background-image: url(images/card-6.png);
+}
+.card-7 {
+  background-image: url(images/card-7.png);
+}
+.card-8 {
+  background-image: url(images/card-8.png);
+}
+.card-9 {
+  background-image: url(images/card-9.png);
+}
+.card-10 {
+  background-image: url(images/card-10.png);
+}
+.card-11 {
+  background-image: url(images/card-11.png);
+}
+.card-12 {
+  background-image: url(images/card-12.png);
+}
+.card-13 {
+  background-image: url(images/card-13.png);
+}
+.card-14 {
+  background-image: url(images/card-14.png);
+}
+.card-15 {
+  background-image: url(images/card-15.png);
+}
+
+@media (max-width:  600px) {
+    .board {
+        transform: scale(0.9);
+    }
+}
