@@ -1,16 +1,15 @@
 import { Common } from "./Common.js";
 
-const TIMER = "timer";
+const TIMER_HTML = "timer";
 let sec = 0;
 let min = 0;
 
 export class Timer extends Common {
   constructor() {
     super();
-    const seconds = null;
   }
   drawTimer() {
-    const element = this.bindToElement(TIMER);
+    const element = this.bindToElement(TIMER_HTML);
     sec++;
     if (sec <= 9) {
       element.textContent = `${min}:0${sec}`;
@@ -24,9 +23,9 @@ export class Timer extends Common {
       element.textContent = `${min}:${sec}0`;
     }
     if (min >= 10) {
-        sec = 0;
-        min = 0;
-        element.textContent = `${min}:${sec}0`;
+      sec = 0;
+      min = 0;
+      element.textContent = `${min}:${sec}0`;
     }
   }
 
@@ -36,6 +35,6 @@ export class Timer extends Common {
     }, 1000);
   }
   restartTimer() {
-      clearInterval(runTimer);
+    clearInterval(runTimer);
   }
 }

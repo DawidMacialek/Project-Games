@@ -6,13 +6,15 @@
   box-sizing: inherit;
 }
 :root {
+  --main-color: #ddd;
   --number-of-cards-in-a-row: 6;
   --card-size: 80px;
   --margin-between-cards: 1px;
   --scale-value: 1;
   --board-width: calc(
     var(--card-size) * var(--number-of-cards-in-a-row) +
-      var(--margin-between-cards) * calc(var(--number-of-cards-in-a-row) * 2)
+      var(--margin-between-cards) * calc(var(--number-of-cards-in-a-row) * 2) +
+      2px
   );
 }
 body {
@@ -20,7 +22,7 @@ body {
   font-family: "Lato", sans-serif;
 }
 .game_container {
-  background-color: #ddd;
+  background-color: var(--main-color);
   width: 90vw;
   height: 100vh;
   margin: 0 auto;
@@ -46,7 +48,7 @@ header h1 {
 .board {
   margin-top: 10px;
   width: var(--board-width);
-
+  border: 1px solid #000;
   display: inline-block;
   display: flex;
   flex-wrap: wrap;
@@ -59,67 +61,31 @@ header h1 {
   height: var(--card-size);
   min-width: 80px;
   min-height: 80px;
-  background-color: #aaa;
+  background-color: var(--main-color);
+  /* border: 1px solid #aaa; */
   margin: var(--margin-between-cards);
   background-position: center;
   background-size: cover;
+  /* transform: rotateY(60deg); */
+  z-index: 0;
 }
 .restart_button {
-    height: 30px;
-    width: 100px;
-    background-color: #ddd;
+  height: 30px;
+  width: 100px;
+  background-color: #ddd;
 }
 .card-top {
   background-image: url(images/card-background.jpg);
+
+  z-index: 2;
 }
-.card-1 {
-  background-image: url(images/card-1.png);
-}
-.card-2 {
-  background-image: url(images/card-2.png);
-}
-.card-3 {
-  background-image: url(images/card-3.png);
-}
-.card-4 {
-  background-image: url(images/card-4.png);
-}
-.card-5 {
-  background-image: url(images/card-5.png);
-}
-.card-6 {
-  background-image: url(images/card-6.png);
-}
-.card-7 {
-  background-image: url(images/card-7.png);
-}
-.card-8 {
-  background-image: url(images/card-8.png);
-}
-.card-9 {
-  background-image: url(images/card-9.png);
-}
-.card-10 {
-  background-image: url(images/card-10.png);
-}
-.card-11 {
-  background-image: url(images/card-11.png);
-}
-.card-12 {
-  background-image: url(images/card-12.png);
-}
-.card-13 {
-  background-image: url(images/card-13.png);
-}
-.card-14 {
-  background-image: url(images/card-14.png);
-}
-.card-15 {
-  background-image: url(images/card-15.png);
+.remove-card {
+  background-image: none;
+  transform: scale(1.2);
 }
 
-@media (max-width:  600px) {
-    .board {
-        transform: scale(0.9);
-    }
+@media (max-width: 600px) {
+  .board {
+    transform: scale(0.9);
+  }
 }
