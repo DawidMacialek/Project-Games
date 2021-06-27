@@ -22,7 +22,7 @@ export class Timer extends Common {
       min++;
       element.textContent = `${min}:${sec}0`;
     }
-    if (min >= 10) {
+    if (min >= 30) {
       sec = 0;
       min = 0;
       element.textContent = `${min}:${sec}0`;

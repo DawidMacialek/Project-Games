@@ -1,31 +1,13 @@
-import { Common } from "./Common.js";
-
-const BOARD_HTML = "board";
-const NUMBER_OF_CARDS = 30;
-export const cards = [];
-export let card = null;
 let clickedCardsIndex = [];
 let clickedCardsHtml = [];
 const matchedCardsArray = [];
+export let movesCounter = 0;
 
-export class Board extends Common {
-  constructor(cardQ) {
-    super();
-    this.cardQ = cardQ;
+export class Board {
+  constructor(clickedCard) {
+    this.clickedCard = clickedCard;
   }
-  createCards() {
-    for (let i = 1; i <= NUMBER_OF_CARDS; i++) {
-      card = document.createElement("div");
-      card.setAttribute("class", `card `);
-      card.setAttribute("data-id", `${i}`);
 
-      card.style.setProperty(
-        "background-image",
-        `url(images/card-background.jpg`
-      );
-      cards.push(card);
-    }
-  }
   hideCard() {
     clickedCardsHtml.forEach((item) => {
       if (!matchedCardsArray.includes(item)) {
@@ -75,6 +57,7 @@ export class Board extends Common {
         clickedCardsIndex.length === 2 &&
         clickedCardsIndex[0] !== clickedCardsIndex[1]
       ) {
+        movesCounter++;
         window.setTimeout(() => {
           this.hideCard();
           this.clearArrays();
@@ -87,6 +70,7 @@ export class Board extends Common {
         clickedCardsIndex[0] === clickedCardsIndex[1]
       ) {
         matchedCardsArray.push(...clickedCardsHtml);
+        movesCounter++;
         window.setTimeout(() => {
           this.removeCard();
           this.clearArrays();
@@ -94,26 +78,5 @@ export class Board extends Common {
         return;
       }
     }
-  }
-  shuttleCards() {
-    this.createCards();
-    let currentIndex = cards.length;
-    let randomIndex;
-    while (0 !== currentIndex) {
-      randomIndex = Math.floor(Math.random() * currentIndex--);
-      [cards[currentIndex], cards[randomIndex]] = [
-        cards[randomIndex],
-        cards[currentIndex],
-      ];
-    }
-    return cards;
-  }
-  drawBoard() {
-    this.shuttleCards();
-
-    const boardHTML = this.bindToElement(BOARD_HTML);
-    cards.forEach((item) => {
-      boardHTML.appendChild(item);
-    });
   }
 }
