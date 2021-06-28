@@ -1,14 +1,16 @@
 import { Common } from "./Common.js";
 
 const TIMER_HTML = "timer";
-let sec = 0;
-let min = 0;
+export let sec;
+export let min;
+let runTimer;
 
 export class Timer extends Common {
   constructor() {
     super();
   }
   drawTimer() {
+    
     const element = this.bindToElement(TIMER_HTML);
     sec++;
     if (sec <= 9) {
@@ -30,11 +32,13 @@ export class Timer extends Common {
   }
 
   setTimer() {
-    const runTimer = setInterval(() => {
+    sec = 0;
+    min = 0;
+    runTimer = setInterval(() => {
       this.drawTimer();
     }, 1000);
   }
-  restartTimer() {
+  stopTimer() {
     clearInterval(runTimer);
   }
 }

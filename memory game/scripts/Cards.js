@@ -1,7 +1,7 @@
 import { Common } from "./Common.js";
 
 const BOARD_HTML = "board";
-export const cards = [];
+export let cards = [];
 export let card = null;
 
 export class Cards extends Common {
@@ -10,6 +10,7 @@ export class Cards extends Common {
     this.numberOfCards = numberOfCards;
   }
   createCards() {
+    cards.length = 0;
     for (let j = 0; j < 2; j++) {
       for (let i = 1; i <= this.numberOfCards / 2; i++) {
         card = document.createElement("div");
@@ -22,9 +23,9 @@ export class Cards extends Common {
         cards.push(card);
       }
     }
+    return cards;
   }
   shuttleCards() {
-    this.createCards();
     let currentIndex = cards.length;
     let randomIndex;
     while (0 !== currentIndex) {
@@ -37,10 +38,17 @@ export class Cards extends Common {
     return cards;
   }
   drawBoard() {
+    this.createCards();
     this.shuttleCards();
     const boardHTML = this.bindToElement(BOARD_HTML);
     cards.forEach((item) => {
       boardHTML.appendChild(item);
+    });
+  }
+  clearBoard() {
+    const boardHTML = this.bindToElement(BOARD_HTML);
+    cards.forEach((item) => {
+      boardHTML.removeChild(item);
     });
   }
 }

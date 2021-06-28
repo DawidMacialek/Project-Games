@@ -17,18 +17,19 @@
             <h1>MEMO GAME</h1>
         </header>
         <div class="results_container">
-            <div class="counter" id="counter">MOVES: 00</div>
+            <div class="counter" id="counter">moves: 00</div>
             <div class="timer" id="timer"></div>
-            <button class="restart_button">RESTART</button>
+            <button class="restart_button" id="restart-button">RESTART</button>
         </div>
         <div class="board_container">
             <div class="board" id="board">
 
             </div>
         </div>
-        <div class="modal" id="modal">
-            <p>You Win!</p>
-            <button class="play_again_button" id="play-again-button"></button>
+        <div class="modal hide" id="modal">
+            <p>THe GAME is END</p>
+            <p id="score">Your score is: </p>
+            <button class="play_again_button" id="play-again-button">PLAY AGAIN</button>
         </div>
     </div>
     <script src="/scripts/Game.js" type="module"></script>

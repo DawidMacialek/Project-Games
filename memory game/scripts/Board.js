@@ -1,6 +1,6 @@
 let clickedCardsIndex = [];
 let clickedCardsHtml = [];
-const matchedCardsArray = [];
+export let matchedCardsArray = [];
 export let movesCounter = 0;
 
 export class Board {
@@ -29,13 +29,17 @@ export class Board {
     clickedCardsHtml = [];
     clickedCardsIndex = [];
   }
-
+  restartBoard() {
+    movesCounter = 0;
+    matchedCardsArray.length = 0;
+  }
   matchingCards(clickedCard) {
     let clickedCardIndex = clickedCard.getAttribute("data-id");
     // sprawdzenie czy jest to div
     if (isNaN(clickedCardIndex) || clickedCardIndex == null) return;
     // klikniecie tej samej karty
     if (clickedCardsHtml.length <= 2 && clickedCardsHtml.length <= 2) {
+      console.log(matchedCardsArray.length);
       clickedCardsHtml.push(clickedCard);
       if (clickedCardsHtml[0] === clickedCardsHtml[1]) {
         clickedCardsHtml.length = 1;
@@ -61,7 +65,7 @@ export class Board {
         window.setTimeout(() => {
           this.hideCard();
           this.clearArrays();
-        }, 2000);
+        }, 1000);
         return;
       }
       if (
