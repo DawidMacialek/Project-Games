@@ -70,6 +70,21 @@ section.games {
   background-size: cover;
   background-position-x: -105%;
 }
+.memoryImg_1 {
+  left: 0;
+  /* background-color: #ddd; */
+  background-image: url("./img/time-bomb-002-mine-jason-decaires-taylor-sculpture.jpg");
+  background-size: cover;
+  background-position-x: -5%;
+  background-repeat: no-repeat;
+}
+.memoryImg_2 {
+  right: 0;
+  /* background-color: #ddd; */
+  background-image: url("./img/time-bomb-002-mine-jason-decaires-taylor-sculpture.jpg");
+  background-size: cover;
+  background-position-x: -105%;
+}
 /* Hover action */
 .game:hover .hangmanImg_1 {
   transform: translateX(-100%);
