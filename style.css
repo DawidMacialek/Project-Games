@@ -45,13 +45,13 @@ section.games {
 .hangmanImg_1 {
   left: 0;
   background-color: #ddd;
-  background-image: url('./img/hangman2.jpg');
+  background-image: url("./img/hangman2.jpg");
   background-size: cover;
 }
 .hangmanImg_2 {
   right: 0;
   background-color: #ddd;
-  background-image: url('./img/hangman2.jpg');
+  background-image: url("./img/hangman2.jpg");
   background-size: cover;
   background-position-x: -100%;
 }
@@ -73,7 +73,7 @@ section.games {
 .memoryImg_1 {
   left: 0;
   /* background-color: #ddd; */
-  background-image: url("./img/time-bomb-002-mine-jason-decaires-taylor-sculpture.jpg");
+  background-image: url("./img/memory-brain.png");
   background-size: cover;
   background-position-x: -5%;
   background-repeat: no-repeat;
@@ -81,26 +81,34 @@ section.games {
 .memoryImg_2 {
   right: 0;
   /* background-color: #ddd; */
-  background-image: url("./img/time-bomb-002-mine-jason-decaires-taylor-sculpture.jpg");
+  background-image: url("./img/memory-brain.png");
   background-size: cover;
   background-position-x: -105%;
 }
 /* Hover action */
 .game:hover .hangmanImg_1 {
   transform: translateX(-100%);
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .game:hover .hangmanImg_2 {
   transform: translateX(100%);
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .game:hover .minesweeperImg_1 {
   transform: translateX(-100%);
-  opacity: .5;
+  opacity: 0.5;
 }
 .game:hover .minesweeperImg_2 {
   transform: translateX(100%);
-  opacity: .5;
+  opacity: 0.5;
+}
+.game:hover .memoryImg_1 {
+  transform: translateX(-100%);
+  opacity: 0.5;
+}
+.game:hover .memoryImg_2 {
+  transform: translateX(100%);
+  opacity: 0.5;
 }
