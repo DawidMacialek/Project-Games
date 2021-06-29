@@ -13,7 +13,7 @@ export class Board {
       if (!matchedCardsArray.includes(item)) {
         item.style.setProperty(
           "background-image",
-          `url(images/card-background.jpg`
+          `url(images/card-background.png`
         );
       }
     });

@@ -18,7 +18,7 @@ export class Cards extends Common {
         card.setAttribute("data-id", `${i}`);
         card.style.setProperty(
           "background-image",
-          `url(images/card-background.jpg`
+          `url(images/card-background.png`
         );
         cards.push(card);
       }
