@@ -8,6 +8,7 @@ const HTML_RESTART_BUTTON = "restart-button";
 const HTML_MODAL = "modal";
 const HTML_MODAL_BUTTON = "play-again-button";
 const HTML_MODAL_TEXT = "score";
+const HTML_GAME_CONTAINER = "game-container";
 // let movesCounter = 0
 
 let clickedCard = null;
@@ -58,6 +59,12 @@ class Game extends Common {
       this.showModal();
       this.timer.stopTimer();
     }
+  }
+  screenResize() {
+    const gameContainer = this.bindToElement(HTML_GAME_CONTAINER);
+    window.addEventListener('resize', () => {
+      
+    });
   }
   restartGame() {
     console.log("restaryujemy gre");

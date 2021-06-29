@@ -20,17 +20,19 @@
 body {
   box-sizing: border-box;
   font-family: "Lato", sans-serif;
+  background-color: var(--main-color);
 }
 .game_container {
   position: relative;
-  background-color: var(--main-color);
-  width: 90vw;
+  width: 100vw;
   height: 100vh;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   transform: scale(var(--scale-value));
+  /* background-color: #fff; */
 }
 header h1 {
   padding: 15px;
@@ -42,7 +44,9 @@ header h1 {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+
   width: var(--board-width);
+
   background-color: #eee;
   height: 50px;
 }
@@ -67,7 +71,6 @@ header h1 {
   margin: var(--margin-between-cards);
   background-position: center;
   background-size: cover;
-  /* transform: rotateY(60deg); */
   z-index: 0;
 }
 .restart_button {
@@ -112,8 +115,33 @@ header h1 {
 .hide {
   display: none;
 }
+@media (min-height: 900px) and (orientation: landscape) {
+  .game_container {
+    transform: scale(1.3);
+  }
+}
+@media (min-width: 800px) and (min-height: 1000px) {
+  .game_container {
+    transform: scale(1.3);
+  }
+}
 @media (max-width: 600px) {
-  .board {
-    transform: scale(0.9);
+  .game_container {
+    transform: scale(0.8);
+  }
+}
+@media (max-width: 495px) {
+  .game_container {
+    transform: scale(0.7);
+  }
+}
+@media (max-width: 345px) {
+  .game_container {
+    transform: scale(0.6);
+  }
+}
+@media (max-width: 280px) {
+  .game_container {
+    transform: scale(0.5);
   }
 }
